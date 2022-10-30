@@ -1,7 +1,11 @@
+import { Header } from './components/Header.tsx';
+import { Choices } from './components/Choices.tsx';
+
 function App() {
   return (
-    <div className="App">
-      hey
+    <div>
+      <Header />
+      <Choices />
     </div>
   );
 }
