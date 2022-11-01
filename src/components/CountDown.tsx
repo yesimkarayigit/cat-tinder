@@ -1,38 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { InputStyled } from '../styles/styled';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTime } from '../store/selectors';
+import { finishGame } from '../store/actions';
 
-const CountDown = (props: any) => {
-  console.log('props', props);
+export const CountDown = () => {
+  const time = useSelector(getTime);
+  const dispatch = useDispatch();
 
-  const [time, setTime] = useState('');
-  const [countDown, setCountDown] = useState('00:00');
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-
-  const handleChangeTime = (e: any) => {
-    const regexForNumbers = /^\d{0,3}$/;
-
-    if (e.target.value === '' || regexForNumbers.test(e.target.value)) {
-      setTime(e.target.value);
-    }
-  };
-
-  const onBlur = (e: any) => {
-    const totalSeconds = e.target.value;
-
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-
-    setCountDown(`${minutes}:${seconds}`);
-    setSeconds(seconds);
-    setMinutes(minutes);
-  };
+  const [seconds, setSeconds] = useState(time % 60);
+  const [minutes, setMinutes] = useState(Math.floor(time / 60));
 
   const updateTime = () => {
     if (minutes == 0 && seconds == 0) {
       setSeconds(0);
       setMinutes(0);
+      dispatch(finishGame(true));
     } else {
       if (seconds == 0) {
         setMinutes((minutes) => minutes - 1);
@@ -42,6 +24,11 @@ const CountDown = (props: any) => {
       }
     }
   };
+
+  useEffect(() => {
+    setSeconds(time % 60);
+    setMinutes(Math.floor(time / 60));
+  }, [time]);
 
   useEffect(() => {
     const token = setTimeout(updateTime, 1000);
@@ -56,22 +43,7 @@ const CountDown = (props: any) => {
 
   return (
     <div>
-      <InputStyled
-        type="text"
-        value={time}
-        onBlur={onBlur}
-        onChange={handleChangeTime}
-      />
-      <p>Play Time: {countDown}</p>
       <p>{text}</p>
     </div>
   );
 };
-
-const mapStateToProps = (state: any) => {
-  return {
-    isStarted: state.isStarted,
-  };
-};
-
-export default connect(mapStateToProps)(CountDown);

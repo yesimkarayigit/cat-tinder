@@ -1,4 +1,0 @@
-export const GAME_ACTIONS = {
-  STARTED: 'STARTED',
-  FINISHED: 'FINIESHED',
-};

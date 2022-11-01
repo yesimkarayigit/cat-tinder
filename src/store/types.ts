@@ -1,0 +1,6 @@
+export const GAME_ACTIONS = {
+  STARTED: 'STARTED',
+  DONE: 'DONE',
+  SET_TIME: 'SET_TIME',
+  SET_BREED: 'SET_BREED',
+};

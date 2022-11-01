@@ -53,14 +53,14 @@ export const EmojiStyled = styled.img`
   height: 50px;
 `;
 
-export const ChoicesContainerStyled = styled.div`
+export const HomeContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-export const ChoicesWrapperStyled = styled.div`
+export const HomeWrapperStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
