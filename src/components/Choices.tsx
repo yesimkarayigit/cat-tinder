@@ -11,10 +11,7 @@ import { connect } from 'react-redux';
 import { startGame } from '../store/actions';
 
 const Choices = (props: any) => {
-  console.log('props', props);
-
   const handleClick = () => {
-    console.log('a');
     props.startGame(true);
   };
 
@@ -24,7 +21,9 @@ const Choices = (props: any) => {
         <CountDown />
         <Breed />
       </ChoicesWrapperStyled>
-      <StartButtonStyled onClick={handleClick}>Start</StartButtonStyled>
+      <StartButtonStyled onClick={handleClick}>
+        Start the game
+      </StartButtonStyled>
     </ChoicesContainerStyled>
   );
 };
