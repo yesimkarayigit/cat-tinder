@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBreed, getTime } from '../store/selectors';
 import { CountDown } from './CountDown';
 import TinderCard from 'react-tinder-card';
-import { Paragragh } from '../styles/styled';
+import { Paragragh, PawStyled } from '../styles/styled';
+import { setLiked, setDisliked, setSkipped } from '../store/actions';
+import Paw from '../assets/paw.png';
+import { Skeleton } from './Skeleton';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
 
@@ -17,6 +20,8 @@ interface Info {
 }
 
 export const Game = () => {
+  const dispatch = useDispatch();
+
   const breed = useSelector(getBreed);
   const time = useSelector(getTime);
   const [lastDirection, setLastDirection] = useState<any>(null);
@@ -47,14 +52,31 @@ export const Game = () => {
       });
   }, []);
 
-  const swiped = (direction: any, nameToDelete: any) => {
-    console.log('removing: ' + nameToDelete);
+  const swiped = (direction: string, id: string) => {
     setLastDirection(direction);
+
+    if (direction === 'right') {
+      dispatch(setLiked(id));
+    }
+
+    if (direction === 'left') {
+      dispatch(setDisliked(id));
+    }
+
+    if (direction === 'down') {
+      dispatch(setSkipped(id));
+    }
   };
 
-  const outOfFrame = (name: any) => {
-    console.log(name + ' left the screen!');
+  const getLevel = (level: number) => {
+    return [...Array(level).keys()].map((paw) => {
+      return <PawStyled key={paw} src={Paw} />;
+    });
   };
+
+  if (!info.length) {
+    return <Skeleton />;
+  }
 
   return (
     <div>
@@ -66,13 +88,23 @@ export const Game = () => {
             className="swipe"
             key={cat.id}
             onSwipe={(dir) => swiped(dir, cat.id)}
-            onCardLeftScreen={() => outOfFrame(cat.id)}
           >
             <div
               style={{ backgroundImage: 'url(' + cat.url + ')' }}
               className="card"
             >
               <h3>{cat.breeds[0].name}</h3>
+              <div>
+                <Paragragh fontSize="14px">
+                  Affection: {getLevel(cat.breeds[0].affection_level)}
+                </Paragragh>
+                <Paragragh fontSize="14px">
+                  Energy: {getLevel(cat.breeds[0].energy_level)}
+                </Paragragh>
+                <Paragragh fontSize="14px">
+                  Intelligence: {getLevel(cat.breeds[0].intelligence)}
+                </Paragragh>
+              </div>
             </div>
           </TinderCard>
         ))}

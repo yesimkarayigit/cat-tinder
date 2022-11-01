@@ -5,6 +5,9 @@ const INITIAL_STATE = {
   isStarted: false,
   isDone: false,
   breedId: 'abys',
+  liked: [],
+  disliked: [],
+  skipped: [],
 };
 
 export const reducer = (state = INITIAL_STATE, action: any) => {
@@ -31,6 +34,24 @@ export const reducer = (state = INITIAL_STATE, action: any) => {
       return {
         ...state,
         isDone: action.payload,
+      };
+
+    case GAME_ACTIONS.SET_LIKED:
+      return {
+        ...state,
+        liked: state.liked.concat(action.payload),
+      };
+
+    case GAME_ACTIONS.SET_DISLIKED:
+      return {
+        ...state,
+        disliked: state.disliked.concat(action.payload),
+      };
+
+    case GAME_ACTIONS.SET_SKIPPED:
+      return {
+        ...state,
+        skipped: state.skipped.concat(action.payload),
       };
 
     default:

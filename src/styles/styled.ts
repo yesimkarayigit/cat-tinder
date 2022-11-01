@@ -13,8 +13,9 @@ export const Flex = styled.div<FlexProps>`
   align-items: ${(props) => props.alignItems || 'center'};
 `;
 
-export const Paragragh = styled.div<ParagraghProps>`
+export const Paragragh = styled.p<ParagraghProps>`
   font-size: ${(props) => props.fontSize || '18px'};
+  margin: 0;
 `;
 
 export const ContainerStyled = styled.div`
@@ -137,4 +138,9 @@ export const WrapperStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const PawStyled = styled.img`
+  height: 12px;
+  margin: 0 2px;
 `;

@@ -15,3 +15,15 @@ export const setBreed = (breedId: string) => {
 export const finishGame = (done: boolean) => {
   return { type: GAME_ACTIONS.DONE, payload: done };
 };
+
+export const setLiked = (liked: string) => {
+  return { type: GAME_ACTIONS.SET_LIKED, payload: liked };
+};
+
+export const setDisliked = (disliked: string) => {
+  return { type: GAME_ACTIONS.SET_DISLIKED, payload: disliked };
+};
+
+export const setSkipped = (skipped: string) => {
+  return { type: GAME_ACTIONS.SET_SKIPPED, payload: skipped };
+};
