@@ -21,6 +21,7 @@ export const ContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
   height: 100vh;
   padding: 0 20px;
   background-color: #e1ffee;
@@ -30,6 +31,7 @@ export const HeaderStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 100px;
   padding: 10px;
   margin: 20px 0;
@@ -41,6 +43,7 @@ export const LogoStyled = styled.img`
   object-fit: contain;
   height: 90px;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const BrandStyled = styled.h2`
@@ -58,6 +61,7 @@ export const HomeContainerStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 export const HomeWrapperStyled = styled.div`
@@ -94,8 +98,14 @@ export const SelectStyled = styled.select`
 `;
 
 export const StartButtonStyled = styled.button`
-  width: 100px;
-  background-color: aqua;
+  width: 160px;
+  padding: 6px;
+  background-color: #f96666;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
 `;
 
 export const IconStyled = styled.img`
@@ -107,23 +117,24 @@ export const FooterStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 40px;
   background-color: white;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
 `;
 
-export const CardStyled = styled.div`
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #f5f0bb;
+export const CardContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const PhotoStyled = styled.img`
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+export const WrapperStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

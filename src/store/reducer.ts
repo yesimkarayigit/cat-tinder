@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   time: null,
   isStarted: false,
   isDone: false,
+  breedId: 'abys',
 };
 
 export const reducer = (state = INITIAL_STATE, action: any) => {

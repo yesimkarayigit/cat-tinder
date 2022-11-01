@@ -28,9 +28,7 @@ export const Home = () => {
         <TimeInput />
         <Breed />
       </HomeWrapperStyled>
-      <StartButtonStyled onClick={handleClick}>
-        Start the game
-      </StartButtonStyled>
+      <StartButtonStyled onClick={handleClick}>Play</StartButtonStyled>
     </HomeContainerStyled>
   );
 };

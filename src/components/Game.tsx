@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { getBreed, getTime } from '../store/selectors';
 import { CountDown } from './CountDown';
-import { Card } from './Card';
+import TinderCard from 'react-tinder-card';
+import { Paragragh } from '../styles/styled';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
 
@@ -18,9 +19,9 @@ interface Info {
 export const Game = () => {
   const breed = useSelector(getBreed);
   const time = useSelector(getTime);
+  const [lastDirection, setLastDirection] = useState<any>(null);
 
   const [info, setInfo] = useState<Array<Info>>([]);
-  console.log('info', info);
 
   useEffect(() => {
     if (!time && !breed) {
@@ -46,13 +47,37 @@ export const Game = () => {
       });
   }, []);
 
+  const swiped = (direction: any, nameToDelete: any) => {
+    console.log('removing: ' + nameToDelete);
+    setLastDirection(direction);
+  };
+
+  const outOfFrame = (name: any) => {
+    console.log(name + ' left the screen!');
+  };
+
   return (
     <div>
       Game
       <CountDown />
-      {info?.map((breed: any) => {
-        return <Card breed={breed} key={breed.id} />;
-      })}
+      <div className="cardContainer">
+        {info.map((cat: any) => (
+          <TinderCard
+            className="swipe"
+            key={cat.id}
+            onSwipe={(dir) => swiped(dir, cat.id)}
+            onCardLeftScreen={() => outOfFrame(cat.id)}
+          >
+            <div
+              style={{ backgroundImage: 'url(' + cat.url + ')' }}
+              className="card"
+            >
+              <h3>{cat.breeds[0].name}</h3>
+            </div>
+          </TinderCard>
+        ))}
+      </div>
+      {lastDirection && <Paragragh>You swiped {lastDirection}</Paragragh>}
     </div>
   );
 };
