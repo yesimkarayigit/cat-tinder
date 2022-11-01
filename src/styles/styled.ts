@@ -66,6 +66,7 @@ export const HomeWrapperStyled = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
   width: 50%;
+  margin-bottom: 20px;
 `;
 
 export const InputStyled = styled.input`
@@ -110,4 +111,19 @@ export const FooterStyled = styled.div`
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
+`;
+
+export const CardStyled = styled.div`
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f5f0bb;
+`;
+
+export const PhotoStyled = styled.img`
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 `;
