@@ -48,7 +48,7 @@ export const CountDown = () => {
       backgroundColor={isLastTenSeconds ? '#F96666' : '#e1ffb1'}
     >
       <Paragragh
-        fontSize="20px"
+        fontSize="1.25rem"
         color={isLastTenSeconds ? '#182747' : '#4C6793'}
         fontWeight="600"
       >

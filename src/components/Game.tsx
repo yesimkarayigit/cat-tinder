@@ -101,13 +101,13 @@ export const Game = () => {
             >
               <h3>{cat.breeds[0].name}</h3>
               <div>
-                <Paragragh fontSize="14px">
+                <Paragragh fontSize="0.875rem">
                   Affection: {getLevel(cat.breeds[0].affection_level)}
                 </Paragragh>
-                <Paragragh fontSize="14px">
+                <Paragragh fontSize="0.875rem">
                   Energy: {getLevel(cat.breeds[0].energy_level)}
                 </Paragragh>
-                <Paragragh fontSize="14px">
+                <Paragragh fontSize="0.875rem">
                   Intelligence: {getLevel(cat.breeds[0].intelligence)}
                 </Paragragh>
               </div>

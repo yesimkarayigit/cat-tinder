@@ -1,7 +1,21 @@
 import styled from 'styled-components';
 
+const sizes = {
+  mobile: '380px',
+  tablet: '880px',
+};
+
+export const devices = {
+  mobile: `(max-width: ${sizes.mobile})`,
+  tablet: `(max-width: ${sizes.tablet})`,
+};
+
 interface FlexProps {
   alignItems?: string;
+}
+
+interface BoxProps {
+  margin?: string;
 }
 
 interface ParagraghProps {
@@ -19,8 +33,12 @@ export const Flex = styled.div<FlexProps>`
   align-items: ${(props) => props.alignItems || 'center'};
 `;
 
+export const Box = styled.div<BoxProps>`
+  margin: ${(props) => props.margin || '0'};
+`;
+
 export const Paragragh = styled.p<ParagraghProps>`
-  font-size: ${(props) => props.fontSize || '18px'};
+  font-size: ${(props) => props.fontSize || '1rem'};
   color: ${(props) => props.color || '#000'};
   font-weight: ${(props) => props.fontWeight || 'normal'};
   margin: 0;
@@ -42,11 +60,16 @@ export const HeaderStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100px;
+  min-height: 100px;
   padding: 10px;
   margin: 20px 0;
   background-color: white;
   border-radius: 10px;
+  flex-wrap: wrap;
+
+  @media ${devices.mobile} {
+    justify-content: center;
+  }
 `;
 
 export const LogoStyled = styled.img`
@@ -54,12 +77,17 @@ export const LogoStyled = styled.img`
   height: 90px;
   border-radius: 10px;
   cursor: pointer;
+
+  @media ${devices.mobile} {
+    margin-right: 0;
+  }
 `;
 
 export const BrandStyled = styled.h2`
   margin: 0;
   color: #7fbcd2;
   margin-right: 10px;
+  white-space: nowrap;
 `;
 
 export const EmojiStyled = styled.img`
@@ -81,10 +109,15 @@ export const HomeWrapperStyled = styled.div`
   flex-wrap: wrap;
   width: 50%;
   margin-bottom: 20px;
+
+  @media ${devices.tablet} {
+    justify-content: center;
+  }
 `;
 
 export const InputStyled = styled.input`
-  font-size: 18px;
+  width: 210px;
+  box-sizing: border-box;
   padding: 10px;
   margin-top: 10px;
   background-color: #a5f1e9;
@@ -97,7 +130,8 @@ export const InputStyled = styled.input`
 `;
 
 export const SelectStyled = styled.select`
-  font-size: 18px;
+  width: 210px;
+  box-sizing: border-box;
   padding: 10px;
   margin-top: 10px;
   background-color: #a5f1e9;

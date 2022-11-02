@@ -53,7 +53,7 @@ export const Home = () => {
         <Breed />
       </HomeWrapperStyled>
       <StartButtonStyled onClick={handleClick}>
-        <Paragragh fontWeight="500" fontSize="18px" color="#182747">
+        <Paragragh fontWeight="500" fontSize="1.2rem" color="#182747">
           Play
         </Paragragh>
       </StartButtonStyled>

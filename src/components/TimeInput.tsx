@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { InputStyled, Paragragh } from '../styles/styled';
+import { Box, InputStyled, Paragragh } from '../styles/styled';
 import { setTime } from '../store/actions';
 import { getTime } from '../store/selectors';
 
@@ -17,9 +17,9 @@ export const TimeInput = () => {
   };
 
   return (
-    <div>
+    <Box margin="0 0 10px 0">
       <Paragragh fontWeight="600">Time</Paragragh>
       <InputStyled type="text" value={time || ''} onChange={handleChangeTime} />
-    </div>
+    </Box>
   );
 };

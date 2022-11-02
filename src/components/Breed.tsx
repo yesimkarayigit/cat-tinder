@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paragragh, SelectStyled } from '../styles/styled';
+import { Box, Paragragh, SelectStyled } from '../styles/styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBreed } from '../store/actions';
 import { getBreed, getBreeds } from '../store/selectors';
@@ -14,7 +14,7 @@ export const Breed = () => {
   };
 
   return (
-    <div>
+    <Box margin="0 0 10px 0">
       <Paragragh fontWeight="600">Breed</Paragragh>
       <SelectStyled value={breed} onChange={handleChangeSelect}>
         {breeds.map((breed: any) => (
@@ -23,6 +23,6 @@ export const Breed = () => {
           </option>
         ))}
       </SelectStyled>
-    </div>
+    </Box>
   );
 };

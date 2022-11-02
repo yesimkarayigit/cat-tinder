@@ -29,7 +29,7 @@ export const Result = () => {
       <p>{disliked.length}</p>
       <p>{skipped.length}</p>
       <ReturnButtonStyled onClick={handleClick}>
-        <Paragragh fontWeight="500" fontSize="18px">
+        <Paragragh fontWeight="500" fontSize="1.2rem">
           Home
         </Paragragh>
       </ReturnButtonStyled>
