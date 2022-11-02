@@ -1,17 +1,23 @@
 interface RootState {
   time: string;
+  breedId: string;
+  breeds: [];
+  liked: [];
+  disliked: [];
+  skipped: [];
+  isDone: boolean;
 }
 
 export const getTime = (state: RootState) => state.time;
 
-export const getBreed = (state: any) => state.breedId;
+export const getBreed = (state: RootState) => state.breedId;
 
-export const getBreeds = (state: any) => state.breeds;
+export const getBreeds = (state: RootState) => state.breeds;
 
-export const getLiked = (state: any) => state.liked;
+export const getLiked = (state: RootState) => state.liked;
 
-export const getDisliked = (state: any) => state.disliked;
+export const getDisliked = (state: RootState) => state.disliked;
 
-export const getSkipped = (state: any) => state.skipped;
+export const getSkipped = (state: RootState) => state.skipped;
 
-export const getDone = (state: any) => state.isDone;
+export const getDone = (state: RootState) => state.isDone;
