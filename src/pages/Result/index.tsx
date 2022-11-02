@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getLiked, getDisliked, getSkipped } from '../../store/selectors';
-import { Paragragh } from '../../styles';
 import { ReturnButton } from '../../components/ReturnButton';
+import { Paragragh } from '../../styles';
 
 export const Result = () => {
   const liked = useSelector(getLiked);

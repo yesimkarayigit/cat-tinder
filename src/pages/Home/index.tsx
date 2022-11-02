@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 import { getBreed, getBreeds, getTime } from '../../store/selectors';
 import { finishGame, setBreeds, startGame } from '../../store/actions';
 import { Breed } from '../../components/Breed';

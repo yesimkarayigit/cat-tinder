@@ -15,3 +15,43 @@ export const FinishButtonStyled = styled.button`
   border: none;
   border-radius: 6px;
 `;
+
+export const CardContainer = styled.div`
+  width: 90vw;
+  max-width: 260px;
+  height: 350px;
+  margin-top: 20px;
+`;
+
+export const Card = styled.div`
+  position: relative;
+  background-color: #fff;
+  width: 80vw;
+  max-width: 260px;
+  height: 340px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+`;
+
+export const CardTitle = styled.h3`
+  position: absolute;
+  top: 0;
+  margin: 10px;
+  color: #fff;
+`;
+
+export const InfoBox = styled.div`
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  width: 70%;
+  padding: 4px;
+  border-radius: 6px;
+  color: #fff;
+  text-align: left;
+  background-color: #ffffff10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from '../../assets/icon.svg';
-import { Paragragh } from '../../styles';
 import { IconStyled, FooterStyled } from './styled';
+import { Paragragh } from '../../styles';
+import Icon from '../../assets/icon.svg';
 
 export const Footer = () => {
   return (

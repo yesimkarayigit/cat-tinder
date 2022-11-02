@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import TinderCard from 'react-tinder-card';
+
 import { getBreed, getDone, getTime } from '../../store/selectors';
 import { setLiked, setDisliked, setSkipped } from '../../store/actions';
 import { Skeleton } from '../../components/Skeleton';
 import { CountDown } from '../../components/CountDown';
-import TinderCard from 'react-tinder-card';
-import Paw from '../../assets/paw.png';
-import { FinishButtonStyled, PawStyled } from './styled';
-import { useNavigate } from 'react-router-dom';
+import {
+  Card,
+  CardContainer,
+  CardTitle,
+  FinishButtonStyled,
+  InfoBox,
+  PawStyled,
+} from './styled';
 import { Paragragh } from '../../styles';
+import Paw from '../../assets/paw.png';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
 
@@ -91,7 +99,7 @@ export const Game = () => {
   return (
     <div>
       <CountDown />
-      <div className="cardContainer">
+      <CardContainer>
         {info.map((cat: any) => (
           <TinderCard
             className="swipe"
@@ -99,12 +107,12 @@ export const Game = () => {
             onSwipe={(dir) => swiped(dir, cat.id)}
             preventSwipe={['up']}
           >
-            <div
+            <Card
               style={{ backgroundImage: 'url(' + cat.url + ')' }}
               className="card"
             >
-              <h3>{cat.breeds[0].name}</h3>
-              <div>
+              <CardTitle>{cat.breeds[0].name}</CardTitle>
+              <InfoBox>
                 <Paragragh fontSize="0.875rem">
                   Affection: {getLevel(cat.breeds[0].affection_level)}
                 </Paragragh>
@@ -114,11 +122,11 @@ export const Game = () => {
                 <Paragragh fontSize="0.875rem">
                   Intelligence: {getLevel(cat.breeds[0].intelligence)}
                 </Paragragh>
-              </div>
-            </div>
+              </InfoBox>
+            </Card>
           </TinderCard>
         ))}
-      </div>
+      </CardContainer>
       <FinishButtonStyled onClick={finishGame}>
         <Paragragh fontWeight="500">See the results</Paragragh>
       </FinishButtonStyled>

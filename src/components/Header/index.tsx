@@ -1,11 +1,11 @@
 import React from 'react';
-import { setBreed, setTime } from '../../store/actions';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../../assets/cat.png';
-import CatEmoji from '../../assets/cat-emoji.png';
+import { setBreed, setTime } from '../../store/actions';
 import { LogoStyled, HeaderStyled, BrandStyled, EmojiStyled } from './styled';
 import { Flex } from '../../styles';
-import { useDispatch } from 'react-redux';
+import Logo from '../../assets/cat.png';
+import CatEmoji from '../../assets/cat-emoji.png';
 
 export const Header = () => {
   const navigate = useNavigate();
