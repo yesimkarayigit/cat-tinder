@@ -1,17 +1,18 @@
 import React from 'react';
+import { Container, Line, Post } from '../styles/skeleton.styled';
 
 export const Skeleton = () => {
   return (
-    <div className="container">
-      <div className="post">
-        <div className="line" />
-        <div className="line" />
-      </div>
+    <Container>
+      <Post>
+        <Line />
+        <Line />
+      </Post>
 
-      <div className="post">
-        <div className="line" />
-        <div className="line" />
-      </div>
-    </div>
+      <Post>
+        <Line />
+        <Line />
+      </Post>
+    </Container>
   );
 };
