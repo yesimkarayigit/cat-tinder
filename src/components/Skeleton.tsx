@@ -12,11 +12,6 @@ export const Skeleton = () => {
         <div className="line" />
         <div className="line" />
       </div>
-
-      <div className="post">
-        <div className="line" />
-        <div className="line" />
-      </div>
     </div>
   );
 };

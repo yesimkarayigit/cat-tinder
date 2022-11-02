@@ -1,30 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Paragragh, SelectStyled } from '../styles/styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBreed } from '../store/actions';
-import { getBreed } from '../store/selectors';
+import { getBreed, getBreeds } from '../store/selectors';
 
 export const Breed = () => {
   const dispatch = useDispatch();
   const breed = useSelector(getBreed);
-
-  const [breeds, setBreeds] = useState([]);
+  const breeds = useSelector(getBreeds);
 
   const handleChangeSelect = (e: any) => {
     dispatch(setBreed(e.target.value));
   };
-
-  useEffect(() => {
-    axios
-      .get('https://api.thecatapi.com/v1/breeds')
-      .then((response) => {
-        setBreeds(response?.data);
-      })
-      .catch((e) => {
-        console.log('Error:', e);
-      });
-  }, []);
 
   return (
     <div>

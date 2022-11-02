@@ -1,5 +1,18 @@
 import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getBreeds } from '../store/selectors';
+import {
+  finishGame,
+  setBreed,
+  setBreeds,
+  setTime,
+  startGame,
+} from '../store/actions';
 import { Breed } from './Breed';
+import { TimeInput } from './TimeInput';
+import { Skeleton } from './Skeleton';
 import {
   HomeContainerStyled,
   HomeWrapperStyled,
@@ -7,14 +20,10 @@ import {
   StartButtonStyled,
 } from '../styles/styled';
 
-import { TimeInput } from './TimeInput';
-import { useDispatch } from 'react-redux';
-import { finishGame, setBreed, setTime, startGame } from '../store/actions';
-import { useNavigate } from 'react-router-dom';
-
 export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const breeds = useSelector(getBreeds);
 
   const handleClick = () => {
     dispatch(startGame(true));
@@ -24,9 +33,22 @@ export const Home = () => {
   };
 
   useEffect(() => {
+    axios
+      .get('https://api.thecatapi.com/v1/breeds')
+      .then((response) => {
+        dispatch(setBreeds(response?.data));
+      })
+      .catch((e) => {
+        console.log('Error:', e);
+      });
+
     dispatch(setBreed(''));
     dispatch(setTime(''));
   }, []);
+
+  if (!breeds.length) {
+    return <Skeleton />;
+  }
 
   return (
     <HomeContainerStyled>

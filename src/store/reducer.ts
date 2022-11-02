@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   liked: [],
   disliked: [],
   skipped: [],
+  breeds: [],
 };
 
 export const reducer = (state = INITIAL_STATE, action: any) => {
@@ -28,6 +29,12 @@ export const reducer = (state = INITIAL_STATE, action: any) => {
       return {
         ...state,
         breedId: action.payload,
+      };
+
+    case GAME_ACTIONS.SET_BREEDS:
+      return {
+        ...state,
+        breeds: action.payload,
       };
 
     case GAME_ACTIONS.DONE:

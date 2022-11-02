@@ -12,6 +12,10 @@ export const setBreed = (breedId: string) => {
   return { type: GAME_ACTIONS.SET_BREED, payload: breedId };
 };
 
+export const setBreeds = (breeds: []) => {
+  return { type: GAME_ACTIONS.SET_BREEDS, payload: breeds };
+};
+
 export const finishGame = (done: boolean) => {
   return { type: GAME_ACTIONS.DONE, payload: done };
 };
