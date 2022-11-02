@@ -5,7 +5,7 @@ export const InputStyled = styled.input`
   box-sizing: border-box;
   padding: 10px;
   margin-top: 10px;
-  background-color: #a5f1e9;
+  background-color: ${(props) => props.theme.colors.iceCold};
   border: none;
   border-radius: 3px;
 

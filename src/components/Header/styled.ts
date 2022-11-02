@@ -9,7 +9,7 @@ export const HeaderStyled = styled.div`
   min-height: 100px;
   padding: 10px;
   margin: 20px 0;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.white};
   border-radius: 10px;
   flex-wrap: wrap;
 
@@ -31,7 +31,7 @@ export const LogoStyled = styled.img`
 
 export const BrandStyled = styled.h2`
   margin: 0;
-  color: #7fbcd2;
+  color: ${(props) => props.theme.colors.halfBaked};
   margin-right: 10px;
   white-space: nowrap;
 `;

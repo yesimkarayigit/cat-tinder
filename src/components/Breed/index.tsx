@@ -4,6 +4,7 @@ import { setBreed } from '../../store/actions';
 import { getBreed, getBreeds } from '../../store/selectors';
 import { SelectStyled } from './styled';
 import { Box, Paragragh } from '../../styles';
+import { theme } from '../../theme';
 
 export const Breed = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export const Breed = () => {
 
   return (
     <Box margin="0 0 10px 0">
-      <Paragragh fontWeight="600">Breed</Paragragh>
+      <Paragragh fontWeight={theme.fontWeights.semiBold}>Breed</Paragragh>
       <SelectStyled value={breed} onChange={handleChangeSelect}>
         {breeds.map((breed: any) => (
           <option value={breed.id} key={breed.id}>

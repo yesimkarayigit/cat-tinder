@@ -18,6 +18,7 @@ import {
 } from './styled';
 import { Paragragh } from '../../styles';
 import Paw from '../../assets/paw.png';
+import { theme } from '../../theme';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
 
@@ -113,13 +114,13 @@ export const Game = () => {
             >
               <CardTitle>{cat.breeds[0].name}</CardTitle>
               <InfoBox>
-                <Paragragh fontSize="0.875rem">
+                <Paragragh fontSize={theme.fontSizes.mini}>
                   Affection: {getLevel(cat.breeds[0].affection_level)}
                 </Paragragh>
-                <Paragragh fontSize="0.875rem">
+                <Paragragh fontSize={theme.fontSizes.mini}>
                   Energy: {getLevel(cat.breeds[0].energy_level)}
                 </Paragragh>
-                <Paragragh fontSize="0.875rem">
+                <Paragragh fontSize={theme.fontSizes.mini}>
                   Intelligence: {getLevel(cat.breeds[0].intelligence)}
                 </Paragragh>
               </InfoBox>
@@ -128,7 +129,9 @@ export const Game = () => {
         ))}
       </CardContainer>
       <FinishButtonStyled onClick={finishGame}>
-        <Paragragh fontWeight="500">See the results</Paragragh>
+        <Paragragh fontWeight={theme.fontWeights.medium}>
+          See the results
+        </Paragragh>
       </FinishButtonStyled>
     </div>
   );

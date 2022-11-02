@@ -4,6 +4,7 @@ import { getTime } from '../../store/selectors';
 import { finishGame } from '../../store/actions';
 import { CountDownBoxStyled } from './styled';
 import { Paragragh } from '../../styles';
+import { theme } from '../../theme';
 
 export const CountDown = () => {
   const time = useSelector(getTime);
@@ -48,12 +49,18 @@ export const CountDown = () => {
 
   return (
     <CountDownBoxStyled
-      backgroundColor={isLastTenSeconds ? '#F96666' : '#e1ffb1'}
+      backgroundColor={
+        isLastTenSeconds ? `${theme.colors.danger}` : `${theme.colors.tidal}`
+      }
     >
       <Paragragh
-        fontSize="1.25rem"
-        color={isLastTenSeconds ? '#182747' : '#4C6793'}
-        fontWeight="600"
+        fontSize={theme.fontSizes.medium}
+        color={
+          isLastTenSeconds
+            ? `${theme.colors.bigStone}`
+            : `${theme.colors.kashmirBlue}`
+        }
+        fontWeight={theme.fontWeights.semiBold}
       >
         {countDownText}
       </Paragragh>

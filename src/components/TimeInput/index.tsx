@@ -4,6 +4,7 @@ import { InputStyled } from './styled';
 import { setTime } from '../../store/actions';
 import { getTime } from '../../store/selectors';
 import { Box, Paragragh } from '../../styles';
+import { theme } from '../../theme';
 
 export const TimeInput = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const TimeInput = () => {
 
   return (
     <Box margin="0 0 10px 0">
-      <Paragragh fontWeight="600">Time</Paragragh>
+      <Paragragh fontWeight={theme.fontWeights.semiBold}>Time</Paragragh>
       <InputStyled type="text" value={time || ''} onChange={handleChangeTime} />
     </Box>
   );

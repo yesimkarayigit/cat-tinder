@@ -25,7 +25,7 @@ export const HomeWrapperStyled = styled.div`
 export const StartButtonStyled = styled.button`
   width: 160px;
   padding: 6px;
-  background-color: #ff7f3f;
+  background-color: ${(props) => props.theme.colors.crusta};
   cursor: pointer;
   outline: none;
   border: none;

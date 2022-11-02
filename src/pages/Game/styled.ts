@@ -9,7 +9,7 @@ export const FinishButtonStyled = styled.button`
   width: 160px;
   margin: 20px 0;
   padding: 6px;
-  background-color: #e1ffb1;
+  background-color: ${(props) => props.theme.colors.iceCold};
   cursor: pointer;
   outline: none;
   border: none;
@@ -25,7 +25,7 @@ export const CardContainer = styled.div`
 
 export const Card = styled.div`
   position: relative;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.white};
   width: 80vw;
   max-width: 260px;
   height: 340px;
@@ -39,7 +39,7 @@ export const CardTitle = styled.h3`
   position: absolute;
   top: 0;
   margin: 10px;
-  color: #fff;
+  color: ${(props) => props.theme.colors.white};
 `;
 
 export const InfoBox = styled.div`
@@ -49,7 +49,7 @@ export const InfoBox = styled.div`
   width: 70%;
   padding: 4px;
   border-radius: 6px;
-  color: #fff;
+  color: ${(props) => props.theme.colors.white};
   text-align: left;
   background-color: #ffffff10;
   backdrop-filter: blur(12px);

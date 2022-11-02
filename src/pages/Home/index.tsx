@@ -14,6 +14,7 @@ import {
   StartButtonStyled,
 } from './styled';
 import { Paragragh } from '../../styles';
+import { theme } from '../../theme';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,6 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    // dispatch(fetchBreeds())
     axios
       .get('https://api.thecatapi.com/v1/breeds')
       .then((response) => {
@@ -55,7 +55,11 @@ export const Home = () => {
         <Breed />
       </HomeWrapperStyled>
       <StartButtonStyled onClick={handleClick}>
-        <Paragragh fontWeight="500" fontSize="1.2rem" color="#182747">
+        <Paragragh
+          fontWeight={theme.fontWeights.medium}
+          fontSize={theme.fontSizes.medium}
+          color={theme.colors.bigStone}
+        >
           Play
         </Paragragh>
       </StartButtonStyled>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { setBreed, setTime } from '../../store/actions';
 import { Paragragh } from '../../styles';
 import { ReturnButtonStyled } from './styled';
+import { theme } from '../../theme';
 
 export const ReturnButton = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export const ReturnButton = () => {
 
   return (
     <ReturnButtonStyled onClick={handleClick}>
-      <Paragragh fontWeight="500" fontSize="1.2rem">
+      <Paragragh fontWeight={theme.fontWeights.medium} fontSize="1.2rem">
         Home
       </Paragragh>
     </ReturnButtonStyled>

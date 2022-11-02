@@ -38,5 +38,5 @@ export const ContainerStyled = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0 20px;
-  background-color: #e1ffee;
+  background-color: ${(props) => props.theme.colors.hintGreen};
 `;

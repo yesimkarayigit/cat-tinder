@@ -7,6 +7,7 @@ interface CountDownBoxStyledProps {
 export const CountDownBoxStyled = styled.div<CountDownBoxStyledProps>`
   padding: 6px;
   margin: 0 auto;
-  background-color: ${(props) => props.backgroundColor || '#e1ffb1'};
+  background-color: ${(props) =>
+    props.backgroundColor || props.theme.color.tidal};
   border-radius: 6px;
 `;
