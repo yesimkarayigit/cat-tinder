@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Breed } from './Breed';
 import {
   HomeContainerStyled,
   HomeWrapperStyled,
+  Paragragh,
   StartButtonStyled,
 } from '../styles/styled';
 
 import { TimeInput } from './TimeInput';
 import { useDispatch } from 'react-redux';
-import { finishGame, startGame } from '../store/actions';
+import { finishGame, setBreed, setTime, startGame } from '../store/actions';
 import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
@@ -22,13 +23,22 @@ export const Home = () => {
     navigate('/game');
   };
 
+  useEffect(() => {
+    dispatch(setBreed(''));
+    dispatch(setTime(''));
+  }, []);
+
   return (
     <HomeContainerStyled>
       <HomeWrapperStyled>
         <TimeInput />
         <Breed />
       </HomeWrapperStyled>
-      <StartButtonStyled onClick={handleClick}>Play</StartButtonStyled>
+      <StartButtonStyled onClick={handleClick}>
+        <Paragragh fontWeight="500" fontSize="18px">
+          Play
+        </Paragragh>
+      </StartButtonStyled>
     </HomeContainerStyled>
   );
 };

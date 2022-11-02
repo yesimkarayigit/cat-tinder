@@ -8,6 +8,7 @@ import { Paragragh, PawStyled } from '../styles/styled';
 import { setLiked, setDisliked, setSkipped } from '../store/actions';
 import Paw from '../assets/paw.png';
 import { Skeleton } from './Skeleton';
+import { useNavigate } from 'react-router-dom';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
 
@@ -20,12 +21,13 @@ interface Info {
 }
 
 export const Game = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const breed = useSelector(getBreed);
   const time = useSelector(getTime);
-  const [lastDirection, setLastDirection] = useState<any>(null);
 
+  const [lastDirection, setLastDirection] = useState<any>(null);
   const [info, setInfo] = useState<Array<Info>>([]);
 
   useEffect(() => {
@@ -35,7 +37,7 @@ export const Game = () => {
 
     axios
       .get(
-        `https://api.thecatapi.com/v1/images/search?limit=5&breed_ids=${breed}`,
+        `https://api.thecatapi.com/v1/images/search?limit=50&breed_ids=${breed}`,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -44,7 +46,6 @@ export const Game = () => {
         }
       )
       .then((response) => {
-        console.log('response?.data', response?.data);
         setInfo(response?.data);
       })
       .catch((e) => {
@@ -74,13 +75,17 @@ export const Game = () => {
     });
   };
 
+  // TODO
+  if (time === 0) {
+    navigate('/result');
+  }
+
   if (!info.length) {
     return <Skeleton />;
   }
 
   return (
     <div>
-      Game
       <CountDown />
       <div className="cardContainer">
         {info.map((cat: any) => (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTime } from '../store/selectors';
 import { finishGame } from '../store/actions';
+import { Paragragh, CountDownBoxStyled } from '../styles/styled';
 
 export const CountDown = () => {
   const time = useSelector(getTime);
@@ -38,12 +39,21 @@ export const CountDown = () => {
     };
   });
 
-  const text =
-    minutes + seconds <= 0 ? 'time is over' : `time: ${minutes}:${seconds}`;
+  const countDownText =
+    minutes + seconds <= 0 ? 'Game is over' : `${minutes}:${seconds}`;
+  const isLastTenSeconds = minutes === 0 && seconds < 10;
 
   return (
-    <div>
-      <p>{text}</p>
-    </div>
+    <CountDownBoxStyled
+      backgroundColor={isLastTenSeconds ? '#F96666' : '#e1ffb1'}
+    >
+      <Paragragh
+        fontSize="20px"
+        color={isLastTenSeconds ? '#182747' : '#4C6793'}
+        fontWeight="600"
+      >
+        {countDownText}
+      </Paragragh>
+    </CountDownBoxStyled>
   );
 };

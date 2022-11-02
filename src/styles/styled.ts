@@ -6,6 +6,12 @@ interface FlexProps {
 
 interface ParagraghProps {
   fontSize?: string;
+  color?: string;
+  fontWeight?: string;
+}
+
+interface CountDownBoxStyledProps {
+  backgroundColor?: string;
 }
 
 export const Flex = styled.div<FlexProps>`
@@ -15,7 +21,10 @@ export const Flex = styled.div<FlexProps>`
 
 export const Paragragh = styled.p<ParagraghProps>`
   font-size: ${(props) => props.fontSize || '18px'};
+  color: ${(props) => props.color || '#000'};
+  font-weight: ${(props) => props.fontWeight || 'normal'};
   margin: 0;
+  white-space: nowrap;
 `;
 
 export const ContainerStyled = styled.div`
@@ -77,6 +86,7 @@ export const HomeWrapperStyled = styled.div`
 export const InputStyled = styled.input`
   font-size: 18px;
   padding: 10px;
+  margin-top: 10px;
   background-color: #a5f1e9;
   border: none;
   border-radius: 3px;
@@ -89,6 +99,7 @@ export const InputStyled = styled.input`
 export const SelectStyled = styled.select`
   font-size: 18px;
   padding: 10px;
+  margin-top: 10px;
   background-color: #a5f1e9;
   border: none;
   border-radius: 3px;
@@ -106,7 +117,6 @@ export const StartButtonStyled = styled.button`
   outline: none;
   border: none;
   border-radius: 6px;
-  font-size: 18px;
 `;
 
 export const IconStyled = styled.img`
@@ -143,4 +153,21 @@ export const WrapperStyled = styled.div`
 export const PawStyled = styled.img`
   height: 12px;
   margin: 0 2px;
+`;
+
+export const CountDownBoxStyled = styled.div<CountDownBoxStyledProps>`
+  padding: 6px;
+  margin: 0 auto;
+  background-color: ${(props) => props.backgroundColor || '#e1ffb1'};
+  border-radius: 6px;
+`;
+
+export const ReturnButtonStyled = styled.button`
+  width: 160px;
+  padding: 6px;
+  background-color: #e1ffb1;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
 `;

@@ -71,7 +71,8 @@ input[type='number'] {
 .cardContainer {
   width: 90vw;
   max-width: 260px;
-  height: 300px;
+  height: 350px;
+  margin-top: 20px;
 }
 
 .card {
