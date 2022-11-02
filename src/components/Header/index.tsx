@@ -15,7 +15,7 @@ export const Header = () => {
     navigate('/');
 
     dispatch(setBreed('abys'));
-    dispatch(setTime(''));
+    dispatch(setTime(0));
   };
 
   return (

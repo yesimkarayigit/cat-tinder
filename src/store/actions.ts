@@ -4,7 +4,7 @@ export const startGame = (started: boolean) => {
   return { type: GAME_ACTIONS.STARTED, payload: started };
 };
 
-export const setTime = (time: string) => {
+export const setTime = (time: number) => {
   return { type: GAME_ACTIONS.SET_TIME, payload: time };
 };
 

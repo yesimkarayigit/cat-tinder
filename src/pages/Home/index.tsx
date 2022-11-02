@@ -25,7 +25,7 @@ export const Home = () => {
   const time = useSelector(getTime);
 
   const handleClick = () => {
-    if (parseInt(time) && breed) {
+    if (time && breed) {
       navigate('/game');
     }
 

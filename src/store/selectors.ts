@@ -1,5 +1,5 @@
 interface RootState {
-  time: string;
+  time: number;
   breedId: string;
   breeds: [];
   liked: [];

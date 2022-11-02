@@ -10,10 +10,8 @@ export const CountDown = () => {
   const time = useSelector(getTime);
   const dispatch = useDispatch();
 
-  const timeNumber = parseInt(time);
-
-  const [seconds, setSeconds] = useState(timeNumber % 60);
-  const [minutes, setMinutes] = useState(Math.floor(timeNumber / 60));
+  const [seconds, setSeconds] = useState(time % 60);
+  const [minutes, setMinutes] = useState(Math.floor(time / 60));
 
   const updateTime = () => {
     if (minutes == 0 && seconds == 0) {
@@ -31,8 +29,8 @@ export const CountDown = () => {
   };
 
   useEffect(() => {
-    setSeconds(timeNumber % 60);
-    setMinutes(Math.floor(timeNumber / 60));
+    setSeconds(time % 60);
+    setMinutes(Math.floor(time / 60));
   }, [time]);
 
   useEffect(() => {

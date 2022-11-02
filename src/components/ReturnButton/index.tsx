@@ -14,7 +14,7 @@ export const ReturnButton = () => {
     navigate('/');
 
     dispatch(setBreed('abys'));
-    dispatch(setTime(''));
+    dispatch(setTime(0));
   };
 
   return (

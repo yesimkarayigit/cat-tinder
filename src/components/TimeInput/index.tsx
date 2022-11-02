@@ -14,7 +14,7 @@ export const TimeInput = () => {
     const regexForNumbers = /^\d{0,3}$/;
 
     if (e.target.value === '' || regexForNumbers.test(e.target.value)) {
-      dispatch(setTime(e.target.value));
+      dispatch(setTime(parseInt(e.target.value)));
     }
   };
 
