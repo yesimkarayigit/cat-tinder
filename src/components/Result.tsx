@@ -27,7 +27,7 @@ export const Result = () => {
     return (
       <div>
         <Paragragh fontSize="1.5rem" fontWeight="600" margin="0 0 60px 0">
-          You never made a decision for a cat. We are sad! &#x1F622;
+          You have not decided on a cat. We are sad! &#x1F622;
         </Paragragh>
         <ReturnButtonStyled onClick={handleClick}>
           <Paragragh fontWeight="500" fontSize="1.2rem">
