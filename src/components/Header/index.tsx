@@ -1,15 +1,10 @@
 import React from 'react';
-import { setBreed, setTime } from '../store/actions';
+import { setBreed, setTime } from '../../store/actions';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/cat.png';
-import CatEmoji from '../assets/cat-emoji.png';
-import {
-  LogoStyled,
-  HeaderStyled,
-  BrandStyled,
-  EmojiStyled,
-} from '../styles/styled';
-import { Flex } from '../styles/global.styled';
+import Logo from '../../assets/cat.png';
+import CatEmoji from '../../assets/cat-emoji.png';
+import { LogoStyled, HeaderStyled, BrandStyled, EmojiStyled } from './styled';
+import { Flex } from '../../styles';
 import { useDispatch } from 'react-redux';
 
 export const Header = () => {

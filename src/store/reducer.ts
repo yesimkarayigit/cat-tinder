@@ -1,7 +1,7 @@
 import { GAME_ACTIONS } from './types';
 
 const INITIAL_STATE = {
-  time: null,
+  time: '',
   isStarted: false,
   isDone: false,
   breedId: 'abys',

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBreed, getDone, getTime } from '../store/selectors';
-import { setLiked, setDisliked, setSkipped } from '../store/actions';
-import { Skeleton } from './Skeleton';
-import { CountDown } from './CountDown';
+import { getBreed, getDone, getTime } from '../../store/selectors';
+import { setLiked, setDisliked, setSkipped } from '../../store/actions';
+import { Skeleton } from '../../components/Skeleton';
+import { CountDown } from '../../components/CountDown';
 import TinderCard from 'react-tinder-card';
-import Paw from '../assets/paw.png';
-import { FinishButtonStyled, PawStyled } from '../styles/styled';
+import Paw from '../../assets/paw.png';
+import { FinishButtonStyled, PawStyled } from './styled';
 import { useNavigate } from 'react-router-dom';
-import { Paragragh } from '../styles/global.styled';
+import { Paragragh } from '../../styles';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
 
@@ -78,10 +78,11 @@ export const Game = () => {
     navigate('/result');
   };
 
-  // TODO
-  if (isDone) {
-    navigate('/result');
-  }
+  useEffect(() => {
+    if (isDone) {
+      navigate('/result');
+    }
+  }, [isDone]);
 
   if (!info.length) {
     return <Skeleton />;

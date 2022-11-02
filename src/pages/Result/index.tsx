@@ -1,25 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getLiked, getDisliked, getSkipped } from '../store/selectors';
-import { ReturnButtonStyled } from '../styles/styled';
-import { useNavigate } from 'react-router-dom';
-import { setBreed, setTime } from '../store/actions';
-import { Paragragh } from '../styles/global.styled';
+import { useSelector } from 'react-redux';
+import { getLiked, getDisliked, getSkipped } from '../../store/selectors';
+import { Paragragh } from '../../styles';
+import { ReturnButton } from '../../components/ReturnButton';
 
 export const Result = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
   const liked = useSelector(getLiked);
   const disliked = useSelector(getDisliked);
   const skipped = useSelector(getSkipped);
-
-  const handleClick = () => {
-    navigate('/');
-
-    dispatch(setBreed('abys'));
-    dispatch(setTime(''));
-  };
 
   const totalCards = liked.length + disliked.length + skipped.length;
 
@@ -29,11 +17,7 @@ export const Result = () => {
         <Paragragh fontSize="1.5rem" fontWeight="600" margin="0 0 60px 0">
           You have not decided on a cat. We are sad! &#x1F622;
         </Paragragh>
-        <ReturnButtonStyled onClick={handleClick}>
-          <Paragragh fontWeight="500" fontSize="1.2rem">
-            Home
-          </Paragragh>
-        </ReturnButtonStyled>
+        <ReturnButton />
       </div>
     );
   }
@@ -55,11 +39,7 @@ export const Result = () => {
       <Paragragh margin="0 0 60px 0" color="#182747" fontWeight="500">
         The number of cats you skip: {skipped.length}
       </Paragragh>
-      <ReturnButtonStyled onClick={handleClick}>
-        <Paragragh fontWeight="500" fontSize="1.2rem">
-          Home
-        </Paragragh>
-      </ReturnButtonStyled>
+      <ReturnButton />
     </div>
   );
 };

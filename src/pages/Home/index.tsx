@@ -2,17 +2,17 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getBreed, getBreeds, getTime } from '../store/selectors';
-import { finishGame, setBreeds, startGame } from '../store/actions';
-import { Breed } from './Breed';
-import { TimeInput } from './TimeInput';
-import { Skeleton } from './Skeleton';
+import { getBreed, getBreeds, getTime } from '../../store/selectors';
+import { finishGame, setBreeds, startGame } from '../../store/actions';
+import { Breed } from '../../components/Breed';
+import { TimeInput } from '../../components/TimeInput';
+import { Skeleton } from '../../components/Skeleton';
 import {
   HomeContainerStyled,
   HomeWrapperStyled,
   StartButtonStyled,
-} from '../styles/styled';
-import { Paragragh } from '../styles/global.styled';
+} from './styled';
+import { Paragragh } from '../../styles';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -23,15 +23,16 @@ export const Home = () => {
   const time = useSelector(getTime);
 
   const handleClick = () => {
-    dispatch(startGame(true));
-    dispatch(finishGame(false));
-
-    if (time && breed) {
+    if (parseInt(time) && breed) {
       navigate('/game');
     }
+
+    dispatch(startGame(true));
+    dispatch(finishGame(false));
   };
 
   useEffect(() => {
+    // dispatch(fetchBreeds())
     axios
       .get('https://api.thecatapi.com/v1/breeds')
       .then((response) => {

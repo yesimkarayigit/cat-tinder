@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTime } from '../store/selectors';
-import { finishGame } from '../store/actions';
-import { CountDownBoxStyled } from '../styles/styled';
-import { Paragragh } from '../styles/global.styled';
+import { getTime } from '../../store/selectors';
+import { finishGame } from '../../store/actions';
+import { CountDownBoxStyled } from './styled';
+import { Paragragh } from '../../styles';
 
 export const CountDown = () => {
   const time = useSelector(getTime);
   const dispatch = useDispatch();
 
-  const [seconds, setSeconds] = useState(time % 60);
-  const [minutes, setMinutes] = useState(Math.floor(time / 60));
+  const timeNumber = parseInt(time);
+
+  const [seconds, setSeconds] = useState(timeNumber % 60);
+  const [minutes, setMinutes] = useState(Math.floor(timeNumber / 60));
 
   const updateTime = () => {
     if (minutes == 0 && seconds == 0) {
@@ -28,8 +30,8 @@ export const CountDown = () => {
   };
 
   useEffect(() => {
-    setSeconds(time % 60);
-    setMinutes(Math.floor(time / 60));
+    setSeconds(timeNumber % 60);
+    setMinutes(Math.floor(timeNumber / 60));
   }, [time]);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Line, Post } from '../styles/skeleton.styled';
+import { Container, Line, Post } from './styled';
 
 export const Skeleton = () => {
   return (

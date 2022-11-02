@@ -30,3 +30,13 @@ export const Paragragh = styled.p<ParagraghProps>`
   font-weight: ${(props) => props.fontWeight || 'normal'};
   margin: ${(props) => props.margin || '0'};
 `;
+
+export const ContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  padding: 0 20px;
+  background-color: #e1ffee;
+`;

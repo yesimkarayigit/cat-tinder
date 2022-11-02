@@ -1,9 +1,9 @@
 import React from 'react';
-import { SelectStyled } from '../styles/styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { setBreed } from '../store/actions';
-import { getBreed, getBreeds } from '../store/selectors';
-import { Box, Paragragh } from '../styles/global.styled';
+import { setBreed } from '../../store/actions';
+import { getBreed, getBreeds } from '../../store/selectors';
+import { SelectStyled } from './styled';
+import { Box, Paragragh } from '../../styles';
 
 export const Breed = () => {
   const dispatch = useDispatch();
