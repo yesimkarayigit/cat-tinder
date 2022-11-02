@@ -8,8 +8,8 @@ import {
   HeaderStyled,
   BrandStyled,
   EmojiStyled,
-  Flex,
 } from '../styles/styled';
+import { Flex } from '../styles/global.styled';
 import { useDispatch } from 'react-redux';
 
 export const Header = () => {

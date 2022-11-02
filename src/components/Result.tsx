@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLiked, getDisliked, getSkipped } from '../store/selectors';
-import { Paragragh, ReturnButtonStyled } from '../styles/styled';
+import { ReturnButtonStyled } from '../styles/styled';
 import { useNavigate } from 'react-router-dom';
 import { setBreed, setTime } from '../store/actions';
+import { Paragragh } from '../styles/global.styled';
 
 export const Result = () => {
   const navigate = useNavigate();

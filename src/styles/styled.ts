@@ -10,40 +10,9 @@ export const devices = {
   tablet: `(max-width: ${sizes.tablet})`,
 };
 
-interface FlexProps {
-  alignItems?: string;
-}
-
-interface BoxProps {
-  margin?: string;
-}
-
-interface ParagraghProps {
-  fontSize?: string;
-  color?: string;
-  fontWeight?: string;
-}
-
 interface CountDownBoxStyledProps {
   backgroundColor?: string;
 }
-
-export const Flex = styled.div<FlexProps>`
-  display: flex;
-  align-items: ${(props) => props.alignItems || 'center'};
-`;
-
-export const Box = styled.div<BoxProps>`
-  margin: ${(props) => props.margin || '0'};
-`;
-
-export const Paragragh = styled.p<ParagraghProps>`
-  font-size: ${(props) => props.fontSize || '1rem'};
-  color: ${(props) => props.color || '#000'};
-  font-weight: ${(props) => props.fontWeight || 'normal'};
-  margin: 0;
-  white-space: nowrap;
-`;
 
 export const ContainerStyled = styled.div`
   display: flex;
@@ -163,9 +132,9 @@ export const FooterStyled = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 40px;
+  height: 30px;
   background-color: white;
-  padding: 20px;
+  padding: 20px 0;
   margin-bottom: 20px;
   border-radius: 10px;
 `;

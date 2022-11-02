@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTime } from '../store/selectors';
 import { finishGame } from '../store/actions';
-import { Paragragh, CountDownBoxStyled } from '../styles/styled';
+import { CountDownBoxStyled } from '../styles/styled';
+import { Paragragh } from '../styles/global.styled';
 
 export const CountDown = () => {
   const time = useSelector(getTime);

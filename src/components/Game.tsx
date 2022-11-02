@@ -7,8 +7,9 @@ import { Skeleton } from './Skeleton';
 import { CountDown } from './CountDown';
 import TinderCard from 'react-tinder-card';
 import Paw from '../assets/paw.png';
-import { Paragragh, PawStyled } from '../styles/styled';
+import { PawStyled } from '../styles/styled';
 import { useNavigate } from 'react-router-dom';
+import { Paragragh } from '../styles/global.styled';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
 

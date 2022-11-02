@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, InputStyled, Paragragh } from '../styles/styled';
+import { InputStyled } from '../styles/styled';
 import { setTime } from '../store/actions';
 import { getTime } from '../store/selectors';
+import { Box, Paragragh } from '../styles/global.styled';
 
 export const TimeInput = () => {
   const dispatch = useDispatch();

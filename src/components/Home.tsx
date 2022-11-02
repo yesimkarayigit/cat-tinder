@@ -10,9 +10,9 @@ import { Skeleton } from './Skeleton';
 import {
   HomeContainerStyled,
   HomeWrapperStyled,
-  Paragragh,
   StartButtonStyled,
 } from '../styles/styled';
+import { Paragragh } from '../styles/global.styled';
 
 export const Home = () => {
   const dispatch = useDispatch();
