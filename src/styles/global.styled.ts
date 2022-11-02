@@ -12,6 +12,7 @@ interface ParagraghProps {
   fontSize?: string;
   color?: string;
   fontWeight?: string;
+  margin?: string;
 }
 
 export const Flex = styled.div<FlexProps>`
@@ -27,6 +28,5 @@ export const Paragragh = styled.p<ParagraghProps>`
   font-size: ${(props) => props.fontSize || '1rem'};
   color: ${(props) => props.color || '#000'};
   font-weight: ${(props) => props.fontWeight || 'normal'};
-  margin: 0;
-  white-space: nowrap;
+  margin: ${(props) => props.margin || '0'};
 `;

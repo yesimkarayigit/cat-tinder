@@ -19,7 +19,7 @@ export const Header = () => {
   const redirect = () => {
     navigate('/');
 
-    dispatch(setBreed(''));
+    dispatch(setBreed('abys'));
     dispatch(setTime(''));
   };
 

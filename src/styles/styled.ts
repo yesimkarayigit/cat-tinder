@@ -174,3 +174,14 @@ export const ReturnButtonStyled = styled.button`
   border: none;
   border-radius: 6px;
 `;
+
+export const FinishButtonStyled = styled.button`
+  width: 160px;
+  margin: 20px 0;
+  padding: 6px;
+  background-color: #e1ffb1;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+`;

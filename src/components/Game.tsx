@@ -7,7 +7,7 @@ import { Skeleton } from './Skeleton';
 import { CountDown } from './CountDown';
 import TinderCard from 'react-tinder-card';
 import Paw from '../assets/paw.png';
-import { PawStyled } from '../styles/styled';
+import { FinishButtonStyled, PawStyled } from '../styles/styled';
 import { useNavigate } from 'react-router-dom';
 import { Paragragh } from '../styles/global.styled';
 
@@ -29,7 +29,6 @@ export const Game = () => {
   const time = useSelector(getTime);
   const isDone = useSelector(getDone);
 
-  const [lastDirection, setLastDirection] = useState<any>(null);
   const [info, setInfo] = useState<Array<Info>>([]);
 
   useEffect(() => {
@@ -56,8 +55,6 @@ export const Game = () => {
   }, []);
 
   const swiped = (direction: string, id: string) => {
-    setLastDirection(direction);
-
     if (direction === 'right') {
       dispatch(setLiked(id));
     }
@@ -75,6 +72,10 @@ export const Game = () => {
     return [...Array(level).keys()].map((paw) => {
       return <PawStyled key={paw} src={Paw} />;
     });
+  };
+
+  const finishGame = () => {
+    navigate('/result');
   };
 
   // TODO
@@ -95,6 +96,7 @@ export const Game = () => {
             className="swipe"
             key={cat.id}
             onSwipe={(dir) => swiped(dir, cat.id)}
+            preventSwipe={['up']}
           >
             <div
               style={{ backgroundImage: 'url(' + cat.url + ')' }}
@@ -116,7 +118,9 @@ export const Game = () => {
           </TinderCard>
         ))}
       </div>
-      {lastDirection && <Paragragh>You swiped {lastDirection}</Paragragh>}
+      <FinishButtonStyled onClick={finishGame}>
+        <Paragragh fontWeight="500">See the results</Paragragh>
+      </FinishButtonStyled>
     </div>
   );
 };

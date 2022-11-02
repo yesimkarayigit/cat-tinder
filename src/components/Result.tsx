@@ -17,18 +17,44 @@ export const Result = () => {
   const handleClick = () => {
     navigate('/');
 
-    dispatch(setBreed(''));
+    dispatch(setBreed('abys'));
     dispatch(setTime(''));
   };
 
-  // TODO
+  const totalCards = liked.length + disliked.length + skipped.length;
+
+  if (!totalCards) {
+    return (
+      <div>
+        <Paragragh fontSize="1.5rem" fontWeight="600" margin="0 0 60px 0">
+          You never made a decision for a cat. We are sad! &#x1F622;
+        </Paragragh>
+        <ReturnButtonStyled onClick={handleClick}>
+          <Paragragh fontWeight="500" fontSize="1.2rem">
+            Home
+          </Paragragh>
+        </ReturnButtonStyled>
+      </div>
+    );
+  }
+
   return (
     <div>
-      Result
-      <p>Total photo: ?</p>
-      <p>{liked.length}</p>
-      <p>{disliked.length}</p>
-      <p>{skipped.length}</p>
+      <Paragragh fontSize="2rem" fontWeight="600" margin="0 0 16px 0">
+        Results
+      </Paragragh>
+      <Paragragh margin="0 0 10px 0" color="#182747" fontWeight="500">
+        You saw a total of {totalCards} cats! &#x1F49B;
+      </Paragragh>
+      <Paragragh margin="0 0 10px 0" color="#182747" fontWeight="500">
+        The number of cats you like: {liked.length}
+      </Paragragh>
+      <Paragragh margin="0 0 10px 0" color="#182747" fontWeight="500">
+        The number of cats you dislike: {disliked.length}
+      </Paragragh>
+      <Paragragh margin="0 0 60px 0" color="#182747" fontWeight="500">
+        The number of cats you skip: {skipped.length}
+      </Paragragh>
       <ReturnButtonStyled onClick={handleClick}>
         <Paragragh fontWeight="500" fontSize="1.2rem">
           Home
