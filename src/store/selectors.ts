@@ -9,3 +9,5 @@ export const getLiked = (state: any) => state.liked;
 export const getDisliked = (state: any) => state.disliked;
 
 export const getSkipped = (state: any) => state.skipped;
+
+export const getDone = (state: any) => state.done;

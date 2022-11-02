@@ -112,7 +112,7 @@ export const SelectStyled = styled.select`
 export const StartButtonStyled = styled.button`
   width: 160px;
   padding: 6px;
-  background-color: #f96666;
+  background-color: #ff7f3f;
   cursor: pointer;
   outline: none;
   border: none;

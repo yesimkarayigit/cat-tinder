@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBreed, getTime } from '../store/selectors';
+import { getBreed, getDone, getTime } from '../store/selectors';
+import { setLiked, setDisliked, setSkipped } from '../store/actions';
+import { Skeleton } from './Skeleton';
 import { CountDown } from './CountDown';
 import TinderCard from 'react-tinder-card';
-import { Paragragh, PawStyled } from '../styles/styled';
-import { setLiked, setDisliked, setSkipped } from '../store/actions';
 import Paw from '../assets/paw.png';
-import { Skeleton } from './Skeleton';
+import { Paragragh, PawStyled } from '../styles/styled';
 import { useNavigate } from 'react-router-dom';
 
 const API_KEY = process.env.REACT_APP_CAT_API_KEY;
@@ -21,11 +21,12 @@ interface Info {
 }
 
 export const Game = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const breed = useSelector(getBreed);
   const time = useSelector(getTime);
+  const isDone = useSelector(getDone);
 
   const [lastDirection, setLastDirection] = useState<any>(null);
   const [info, setInfo] = useState<Array<Info>>([]);
@@ -76,7 +77,7 @@ export const Game = () => {
   };
 
   // TODO
-  if (time === 0) {
+  if (isDone) {
     navigate('/result');
   }
 

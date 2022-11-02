@@ -2,14 +2,8 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getBreeds } from '../store/selectors';
-import {
-  finishGame,
-  setBreed,
-  setBreeds,
-  setTime,
-  startGame,
-} from '../store/actions';
+import { getBreed, getBreeds, getTime } from '../store/selectors';
+import { finishGame, setBreeds, startGame } from '../store/actions';
 import { Breed } from './Breed';
 import { TimeInput } from './TimeInput';
 import { Skeleton } from './Skeleton';
@@ -23,13 +17,18 @@ import {
 export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const breeds = useSelector(getBreeds);
+  const breed = useSelector(getBreed);
+  const time = useSelector(getTime);
 
   const handleClick = () => {
     dispatch(startGame(true));
     dispatch(finishGame(false));
 
-    navigate('/game');
+    if (time && breed) {
+      navigate('/game');
+    }
   };
 
   useEffect(() => {
@@ -41,9 +40,6 @@ export const Home = () => {
       .catch((e) => {
         console.log('Error:', e);
       });
-
-    dispatch(setBreed(''));
-    dispatch(setTime(''));
   }, []);
 
   if (!breeds.length) {
@@ -57,7 +53,7 @@ export const Home = () => {
         <Breed />
       </HomeWrapperStyled>
       <StartButtonStyled onClick={handleClick}>
-        <Paragragh fontWeight="500" fontSize="18px">
+        <Paragragh fontWeight="500" fontSize="18px" color="#182747">
           Play
         </Paragragh>
       </StartButtonStyled>
