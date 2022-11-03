@@ -46,18 +46,10 @@ export const CountDown = () => {
   const isLastTenSeconds = minutes === 0 && seconds < 10;
 
   return (
-    <CountDownBoxStyled
-      backgroundColor={
-        isLastTenSeconds ? `${theme.colors.danger}` : `${theme.colors.tidal}`
-      }
-    >
+    <CountDownBoxStyled isLastTenSeconds={isLastTenSeconds}>
       <Paragragh
         fontSize={theme.fontSizes.medium}
-        color={
-          isLastTenSeconds
-            ? `${theme.colors.bigStone}`
-            : `${theme.colors.kashmirBlue}`
-        }
+        color={theme.colors.bigStone}
         fontWeight={theme.fontWeights.semiBold}
       >
         {countDownText}

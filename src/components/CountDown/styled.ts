@@ -1,13 +1,18 @@
 import styled from 'styled-components';
+import { ifProp } from 'styled-tools';
+import { theme } from '../../theme';
 
 interface CountDownBoxStyledProps {
-  backgroundColor?: string;
+  isLastTenSeconds?: boolean;
 }
 
 export const CountDownBoxStyled = styled.div<CountDownBoxStyledProps>`
   padding: 6px;
   margin: 0 auto;
-  background-color: ${(props) =>
-    props.backgroundColor || props.theme.color.tidal};
+  background-color: ${ifProp(
+    { isLastTenSeconds: true },
+    `${theme.colors.danger}`,
+    `${theme.colors.tidal}`
+  )};
   border-radius: 6px;
 `;
