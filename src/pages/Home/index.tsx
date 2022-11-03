@@ -4,7 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { getBreed, getBreeds, getTime } from '../../store/selectors';
-import { finishGame, setBreeds, startGame } from '../../store/actions';
+import {
+  clearDisliked,
+  clearLiked,
+  clearSkipped,
+  finishGame,
+  setBreeds,
+  startGame,
+} from '../../store/actions';
 import { Breed } from '../../components/Breed';
 import { TimeInput } from '../../components/TimeInput';
 import { Skeleton } from '../../components/Skeleton';
@@ -42,6 +49,10 @@ export const Home = () => {
       .catch((e) => {
         console.log('Error:', e);
       });
+
+    dispatch(clearLiked());
+    dispatch(clearDisliked());
+    dispatch(clearSkipped());
   }, []);
 
   if (!breeds.length) {

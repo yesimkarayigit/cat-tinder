@@ -31,3 +31,15 @@ export const setDisliked = (disliked: string) => {
 export const setSkipped = (skipped: string) => {
   return { type: GAME_ACTIONS.SET_SKIPPED, payload: skipped };
 };
+
+export const clearLiked = () => {
+  return { type: GAME_ACTIONS.CLEAR_LIKED };
+};
+
+export const clearDisliked = () => {
+  return { type: GAME_ACTIONS.CLEAR_DISLIKED };
+};
+
+export const clearSkipped = () => {
+  return { type: GAME_ACTIONS.CLEAR_SKIPPED };
+};

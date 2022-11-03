@@ -61,6 +61,24 @@ export const reducer = (state = INITIAL_STATE, action: any) => {
         skipped: state.skipped.concat(action.payload),
       };
 
+    case GAME_ACTIONS.CLEAR_LIKED:
+      return {
+        ...state,
+        liked: INITIAL_STATE.liked,
+      };
+
+    case GAME_ACTIONS.CLEAR_DISLIKED:
+      return {
+        ...state,
+        disliked: INITIAL_STATE.disliked,
+      };
+
+    case GAME_ACTIONS.CLEAR_SKIPPED:
+      return {
+        ...state,
+        skipped: INITIAL_STATE.skipped,
+      };
+
     default:
       return state;
   }
